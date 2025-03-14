@@ -13,7 +13,6 @@ export const metadata: Metadata = {
   title: "Eternal Redemption Ministry International",
   description: "Spreading the word of God and building a community of faith",
   manifest: "/manifest.json",
-  themeColor: "#ffffff",
   openGraph: {
     type: "website",
     locale: "en_US",
