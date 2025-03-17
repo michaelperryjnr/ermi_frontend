@@ -15,6 +15,7 @@ import {
   UpcomingEventsSection,
 } from "@/components/sections";
 import { AnimationVariants } from "@/lib";
+import Images from "@/assets";
 
 export default function Home() {
   const currentEvent = {
@@ -174,7 +175,7 @@ export default function Home() {
               className="relative aspect-square"
             >
               <Image
-                src="/placeholder.svg?height=800&width=800"
+                src={Images.headPastor}
                 alt="Head Pastor"
                 fill
                 className="object-cover rounded-lg"
@@ -183,8 +184,8 @@ export default function Home() {
             <motion.div variants={AnimationVariants.item} className="space-y-6">
               <h2 className="text-3xl font-bold">Meet Our Head Pastor</h2>
               <p className="text-muted-foreground">
-                Pastor John Doe has been leading our congregation for over 15
-                years, bringing the word of God to life through powerful
+                Rev. Daniel Akrofi Akotiah has been leading our congregation for
+                over 10 years, bringing the word of God to life through powerful
                 teaching and compassionate leadership. His vision for ERMI is to
                 create a community where everyone can experience God's love and
                 grow in their faith journey.

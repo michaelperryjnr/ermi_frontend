@@ -20,6 +20,11 @@ import {
   unsubscribeFromNotifications,
 } from "./notifications";
 
+function isMobile() {
+  if (typeof window === "undefined") return false;
+  return window.innerWidth < 768;
+}
+
 export {
   AnimationVariants,
   cn,
@@ -37,4 +42,5 @@ export {
   downloadICalFile,
   subscribeToNotifications,
   unsubscribeFromNotifications,
+  isMobile,
 };

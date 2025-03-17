@@ -3,13 +3,15 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Images from "@/assets";
 
 const LandingHeroSection = () => {
   return (
     <section className="relative h-[80vh] flex items-center">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/placeholder.svg?height=1080&width=1920"
+          src={Images.landingHero}
+          layout="fill"
           alt="Church sanctuary"
           fill
           className="object-cover brightness-50"

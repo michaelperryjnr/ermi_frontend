@@ -70,7 +70,7 @@ const BlogPreviewSection = ({ data }: BlogPreviewSectionProps) => {
                   <p className="text-muted-foreground mb-4 line-clamp-3">
                     {post.excerpt}
                   </p>
-                  <Button variant="ghost" className="p-0 h-auto" asChild>
+                  <Button variant="ghost" className="h-auto" asChild>
                     <Link
                       href={`/blog/${post.id}`}
                       className="flex items-center text-primary"
