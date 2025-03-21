@@ -10,6 +10,7 @@ import { BlogPost } from "./IBlog";
 import { GalleryItem } from "./IGallery";
 import { Sermon } from "./ISermon";
 import { Ministry } from "./IMinsitry";
+import { Devotional } from "./IDevotional";
 
 export type {
   Attendee,
@@ -22,4 +23,5 @@ export type {
   Sermon,
   WeekDay,
   Ministry,
+  Devotional,
 };

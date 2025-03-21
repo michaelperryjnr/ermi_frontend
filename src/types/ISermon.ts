@@ -1,13 +1,13 @@
 import { StaticImageData } from "next/image";
 
-interface Sermon {
+export interface Sermon {
   id: string;
   title: string;
   speaker: string;
   date: string;
   scripture: string;
   duration: string;
-  image: string | StaticImageData;
+  videoUrl?: string;
+  image?: string | StaticImageData;
+  views?: number;
 }
-
-export type { Sermon };
