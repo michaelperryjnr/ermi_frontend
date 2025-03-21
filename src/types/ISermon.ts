@@ -1,3 +1,5 @@
+import { StaticImageData } from "next/image";
+
 interface Sermon {
   id: string;
   title: string;
@@ -5,7 +7,7 @@ interface Sermon {
   date: string;
   scripture: string;
   duration: string;
-  image: string;
+  image: string | StaticImageData;
 }
 
 export type { Sermon };
