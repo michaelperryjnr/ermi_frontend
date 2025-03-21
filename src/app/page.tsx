@@ -113,7 +113,7 @@ export default function Home() {
       speaker: "Pastor John Doe",
       date: "2025-03-10",
       scripture: "Hebrews 11:1-6",
-      image: "/placeholder.svg?height=400&width=600",
+      image: Images.videoPlaceholder,
       duration: "45:22",
     },
     {
@@ -122,7 +122,7 @@ export default function Home() {
       speaker: "Pastor Jane Smith",
       date: "2025-03-03",
       scripture: "James 5:13-18",
-      image: "/placeholder.svg?height=400&width=600",
+      image: Images.videoPlaceholder,
       duration: "38:15",
     },
     {
@@ -131,7 +131,7 @@ export default function Home() {
       speaker: "Pastor John Doe",
       date: "2025-02-24",
       scripture: "John 14:27",
-      image: "/placeholder.svg?height=400&width=600",
+      image: Images.videoPlaceholder,
       duration: "42:50",
     },
   ];
