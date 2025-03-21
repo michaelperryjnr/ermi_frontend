@@ -59,7 +59,7 @@ const GalleryPreviewSection = ({
               whileHover={{ y: -5 }}
               className="cursor-pointer"
             >
-              <Link href="/gallery">
+              <Link href={`/gallery/${item.id}`}>
                 <div className="relative aspect-square overflow-hidden rounded-lg">
                   <Image
                     src={item.image! || "/placeholder.svg"}

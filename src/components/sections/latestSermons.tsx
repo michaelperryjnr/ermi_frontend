@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ChevronRight, Headphones, Play } from "lucide-react";
 import { AnimationVariants, formatDate } from "@/lib";
 import { Sermon } from "@/types";
+import Images from "@/assets";
 
 const LatestSermonsSection = ({
   sermonPreview,
@@ -53,7 +54,7 @@ const LatestSermonsSection = ({
               <Card className="overflow-hidden h-full hover:shadow-lg transition-shadow">
                 <div className="relative h-48 group">
                   <Image
-                    src={sermon.image || "/placeholder.svg"}
+                    src={sermon.image || Images.videoPlaceholder}
                     alt={sermon.title}
                     fill
                     className="object-cover"
@@ -83,7 +84,7 @@ const LatestSermonsSection = ({
                 <CardFooter className="flex flex-col gap-2">
                   <div className="flex gap-2 w-full">
                     <Button variant="outline" className="flex-1" asChild>
-                      <Link href={`/sermons/${sermon.id}`}>
+                      <Link href={`/sermons/${sermon.id}?listen=true`}>
                         <Headphones className="h-4 w-4 mr-2" />
                         Listen
                       </Link>
@@ -96,7 +97,7 @@ const LatestSermonsSection = ({
                     </Button>
                   </div>
                   <Button className="w-full" asChild>
-                    <Link href={`/`}>Read</Link>
+                    <Link href={`/sermons/${sermon.id}`}>Read</Link>
                   </Button>
                 </CardFooter>
               </Card>
