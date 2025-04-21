@@ -1,13 +1,12 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Calendar, Clock, MapPin } from "lucide-react"
-import Link from "next/link"
-import { motion, AnimatePresence } from "framer-motion"
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Calendar, Clock, MapPin } from "lucide-react";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 
-// Mock data - would come from your API/database in production
 const upcomingEvents = [
   {
     id: 1,
@@ -30,38 +29,38 @@ const upcomingEvents = [
     location: "Fellowship Hall",
     description: "A time of prayer and fellowship for women",
   },
-]
+];
 
 export default function UpcomingEvents() {
-  const [isVisible, setIsVisible] = useState(false)
-  const [isExpanded, setIsExpanded] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
     // Show the upcoming events banner after a delay
     const timer = setTimeout(() => {
-      setIsVisible(true)
-    }, 3000)
+      setIsVisible(true);
+    }, 3000);
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
 
   const formatDate = (dateString: string) => {
-    const date = new Date(dateString)
+    const date = new Date(dateString);
     return date.toLocaleDateString("en-US", {
       weekday: "short",
       month: "short",
       day: "numeric",
-    })
-  }
+    });
+  };
 
   const formatTime = (dateString: string) => {
-    const date = new Date(dateString)
+    const date = new Date(dateString);
     return date.toLocaleTimeString("en-US", {
       hour: "numeric",
       minute: "2-digit",
       hour12: true,
-    })
-  }
+    });
+  };
 
   return (
     <AnimatePresence>
@@ -110,7 +109,10 @@ export default function UpcomingEvents() {
                   >
                     <div className="p-3 space-y-3 max-h-[300px] overflow-y-auto">
                       {upcomingEvents.map((event) => (
-                        <div key={event.id} className="border-b pb-3 last:border-b-0 last:pb-0">
+                        <div
+                          key={event.id}
+                          className="border-b pb-3 last:border-b-0 last:pb-0"
+                        >
                           <h4 className="font-medium">{event.title}</h4>
                           <div className="text-sm text-muted-foreground space-y-1 mt-1">
                             <div className="flex items-center">
@@ -141,9 +143,12 @@ export default function UpcomingEvents() {
               {!isExpanded && (
                 <div className="p-3 flex items-center justify-between">
                   <div>
-                    <p className="text-sm font-medium">Next: {upcomingEvents[0].title}</p>
+                    <p className="text-sm font-medium">
+                      Next: {upcomingEvents[0].title}
+                    </p>
                     <p className="text-xs text-muted-foreground">
-                      {formatDate(upcomingEvents[0].date)} at {formatTime(upcomingEvents[0].date)}
+                      {formatDate(upcomingEvents[0].date)} at{" "}
+                      {formatTime(upcomingEvents[0].date)}
                     </p>
                   </div>
                   <Button variant="outline" size="sm" asChild>
@@ -156,6 +161,5 @@ export default function UpcomingEvents() {
         </motion.div>
       )}
     </AnimatePresence>
-  )
+  );
 }
-

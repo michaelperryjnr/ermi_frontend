@@ -22,7 +22,6 @@ interface NoteDialogProps {
   setIsOpen: (isOpen: boolean) => void;
   selectedVerse: string | null;
   labelsData: any[];
-  bibleVersion: string;
 }
 
 export function NoteDialog({
@@ -30,11 +29,10 @@ export function NoteDialog({
   setIsOpen,
   selectedVerse,
   labelsData,
-  bibleVersion,
 }: NoteDialogProps) {
   const [noteText, setNoteText] = useState("");
   const [selectedLabels, setSelectedLabels] = useState<string[]>([]);
-  const { addNote } = useNotes(bibleVersion);
+  const { addNote } = useNotes();
   const [showLabelManager, setShowLabelManager] = useState(false);
 
   const [availableLabels, setAvailableLabels] = useState(labelsData);

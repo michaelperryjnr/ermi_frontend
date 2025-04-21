@@ -32,7 +32,6 @@ interface BibleNavigationProps {
   notes: any[];
   highlights: any[];
   labels: any[];
-  selectedVersion: string;
 }
 
 export function BibleNavigation({
@@ -48,32 +47,21 @@ export function BibleNavigation({
   notes,
   highlights,
   labels,
-  selectedVersion,
 }: BibleNavigationProps) {
-  const { deleteNote } = useNotes(selectedVersion);
-  const { removeHighlight } = useHighlights(selectedVersion);
+  const { deleteNote } = useNotes();
+  const { removeHighlight } = useHighlights();
   const [activeTab, setActiveTab] = useState("navigation");
 
   return (
     <div className="space-y-6">
       <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-        <TabsList className="grid w-full grid-cols-4 mb-4">
+        <TabsList className="grid grid-cols-4 mb-4">
           <TabsTrigger value="navigation">Navigation</TabsTrigger>
           <TabsTrigger value="notes" className="relative">
             Notes
-            {notes.length > 0 && (
-              <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs rounded-full w-4 h-4 flex items-center justify-center">
-                {notes.length}
-              </span>
-            )}
           </TabsTrigger>
           <TabsTrigger value="highlights" className="relative">
             Highlights
-            {highlights.length > 0 && (
-              <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs rounded-full w-4 h-4 flex items-center justify-center">
-                {highlights.length}
-              </span>
-            )}
           </TabsTrigger>
           <TabsTrigger value="labels">Labels</TabsTrigger>
         </TabsList>

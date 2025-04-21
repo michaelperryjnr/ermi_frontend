@@ -9,8 +9,7 @@ import {
 } from "@/components/ui/popover";
 import { Highlighter, MessageSquarePlus, Share2 } from "lucide-react";
 import { useHighlights } from "@/hooks";
-import { useContext } from "react";
-import { BibleVersionContext } from "@/contexts";
+import { useBibleState } from "@/contexts/bibleVersionContext";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Default highlight colors
@@ -44,9 +43,9 @@ export function VerseComponent({
   selectedBook,
   selectedChapter,
 }: VerseComponentProps) {
-  const { selectedVersion } = useContext(BibleVersionContext);
+  const { selectedVersion } = useBibleState();
   const { addHighlight, removeHighlight, updateHighlight } =
-    useHighlights(selectedVersion);
+    useHighlights();
   const [selectedColor, setSelectedColor] = useState(highlightColors[0]);
   const [isHovered, setIsHovered] = useState(false);
   const [showActions, setShowActions] = useState(false);

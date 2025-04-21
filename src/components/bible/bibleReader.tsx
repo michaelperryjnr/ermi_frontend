@@ -1,3 +1,4 @@
+// src/components/bible/bibleReader.tsx
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -19,7 +20,7 @@ import { BibleNavigation } from "./bibleNavigation";
 import { VerseComponent } from "./verseComponent";
 import { SearchResults } from "./searchResults";
 import { BibleVersionSelector } from "./bibleVersionSelector";
-import { useNotes, useHighlights, useBibleData, useLabels } from "@/hooks";
+import { useBibleData, useNotes, useHighlights, useLabels } from "@/hooks";
 import { NoteDialog } from "./noteDialog";
 import { isMobile } from "@/lib";
 import { Input } from "@/components/ui/input";
@@ -32,16 +33,15 @@ export default function BibleReader() {
     verses,
     selectedBook,
     selectedChapter,
-    selectedVersion,
     isLoading,
     loadError,
     setSelectedBook,
     setSelectedChapter,
-    setSelectedVersion,
   } = useBibleData();
 
-  const { notes } = useNotes(selectedVersion);
-  const { highlights } = useHighlights(selectedVersion);
+  const { selectedVersion, setSelectedVersion } = useBibleData();
+  const { notes } = useNotes();
+  const { highlights } = useHighlights();
   const { labels } = useLabels();
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -267,7 +267,6 @@ export default function BibleReader() {
                   notes={notes}
                   highlights={highlights}
                   labels={labels}
-                  selectedVersion={selectedVersion}
                 />
               </motion.div>
             )}
@@ -308,7 +307,7 @@ export default function BibleReader() {
                     {filteredVerses.length > 0 ? (
                       filteredVerses.map((verse, index) => (
                         <VerseComponent
-                          key={index}
+                          key={verse.id} // Use verse.id instead of index for more stable keys
                           verse={verse}
                           highlights={highlights}
                           notes={notes}
@@ -389,7 +388,6 @@ export default function BibleReader() {
             setIsOpen={setIsAddingNote}
             selectedVerse={selectedVerse}
             labelsData={labels}
-            bibleVersion={selectedVersion}
           />
         )}
       </motion.div>

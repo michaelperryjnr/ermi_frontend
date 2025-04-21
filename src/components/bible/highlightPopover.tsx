@@ -9,6 +9,7 @@ import {
 import { useHighlights } from "@/hooks";
 import { useContext } from "react";
 import { BibleVersionContext } from "@/contexts";
+import { useBibleState } from "@/contexts/bibleVersionContext";
 
 // Default highlight colors
 const highlightColors = [
@@ -31,9 +32,9 @@ export function HighlightPopover({
   selectedColor,
   setSelectedColor,
 }: HighlightPopoverProps) {
-  const { selectedVersion } = useContext(BibleVersionContext);
+  const { selectedVersion } = useBibleState();
   const { highlights, addHighlight, removeHighlight, updateHighlight } =
-    useHighlights(selectedVersion);
+    useHighlights();
 
   if (!verse) {
     return null; // Return null if verse is undefined
