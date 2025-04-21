@@ -9,8 +9,9 @@ import {
 import { BlogPost } from "./IBlog";
 import { GalleryItem } from "./IGallery";
 import { Sermon } from "./ISermon";
-import { Ministry } from "./IMinsitry";
+import { Ministry } from "./IMinistry";
 import { Devotional } from "./IDevotional";
+import { Label, Note, Highlight, BibleStateContextType } from "./IBible";
 
 export type {
   Attendee,
@@ -24,4 +25,8 @@ export type {
   WeekDay,
   Ministry,
   Devotional,
+  Label,
+  Note,
+  Highlight,
+  BibleStateContextType,
 };
