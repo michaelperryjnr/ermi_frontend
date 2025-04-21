@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useBibleState } from "@/contexts/bibleVersionContext";
 import Data from "@/data";
 
 export function useBibleData() {
@@ -9,7 +10,7 @@ export function useBibleData() {
   const [verses, setVerses] = useState<any[]>([]);
   const [selectedBook, setSelectedBook] = useState<any | null>(null);
   const [selectedChapter, setSelectedChapter] = useState(1);
-  const [selectedVersion, setSelectedVersion] = useState("kjv");
+  const {selectedVersion, setSelectedVersion} = useBibleState();
   const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
 
