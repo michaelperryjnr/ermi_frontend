@@ -1,12 +1,12 @@
 "use client";
 
 import BibleReader from "@/components/bible/bibleReader";
-import { BibleVersionProvider } from "@/contexts";
+import BibleStateProvider from "@/contexts/bibleVersionContext";
 
 export default function BiblePage() {
   return (
-    <BibleVersionProvider>
+    <BibleStateProvider>
       <BibleReader />
-    </BibleVersionProvider>
+    </BibleStateProvider>
   );
 }
